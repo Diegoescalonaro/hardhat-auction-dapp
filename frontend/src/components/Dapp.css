@@ -1,0 +1,143 @@
+.App {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+.App-title {
+  font-size: 80px;
+  margin-bottom: 20px;
+  font-weight: 100;
+  font-variant: small-caps;
+}
+.App-subtitle {
+  font-size: 40px;
+  margin-bottom: 20px;
+  font-weight: 100;
+  font-variant: small-caps;
+}
+
+h2 {
+  font-size: 40px;
+  font-weight: 100;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(14px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.Context-information {
+  line-height: 15px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid grey;
+  background-color: ghostwhite;
+  padding: 20px;
+}
+
+.Auction-information {
+  width: 100%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid grey;
+}
+
+.Auction-information-img {
+  flex: 2;
+}
+
+.Auction-information-img img {
+  width: 400px;
+}
+
+.Auction-information-text {
+  flex: 3;
+  margin-left: 10px;
+}
+.Auction-info-title {
+  padding: 5px 5px 5px 10px;
+  margin-right: 5px;
+  background-color: ghostwhite;
+  font-variant: small-caps;
+  font-weight: 600;
+}
+
+button {
+  padding: 8px;
+  width: 100%;
+  max-width: 250px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#button-call {
+  background-color: #365f7c;
+  color: white;
+}
+
+#button-call:hover {
+  color: #fff;
+  background-color: #2a4b62;
+  border-color: #264459;
+}
+
+#button-call:focus {
+  box-shadow: 0 0 0 0.2rem rgb(83 119 145 / 50%);
+}
+
+#button-send {
+  background-color: #b84040;
+  color: white;
+  margin-left: 2px;
+}
+
+#button-send:hover {
+  color: #fff;
+  background-color: #9c3636;
+  border-color: #923333;
+}
+
+#button-send:focus,
+#button-send:active {
+  box-shadow: 0 0 0 0.2rem rgb(195 93 93 / 50%);
+}
+
+.Auction-actions {
+  width: 100%;
+  margin: auto;
+}
+
+.Auction-actions input {
+  width: 60%;
+  padding: 8px;
+  max-width: 400px;
+  text-align: center;
+  font-size: 15px;
+}
+
+#inline {
+  display: inline;
+  margin-right: 30px;
+}
