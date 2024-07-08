@@ -13,6 +13,11 @@ async function main() {
     );
   }
 
+  // await deployContract("Token");
+  await deployContract("Auction");
+}
+
+async function deployContract(contractName) {
   // ethers is available in the global scope
   const [deployer] = await ethers.getSigners();
   console.log(
@@ -22,19 +27,27 @@ async function main() {
 
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
-  const Token = await ethers.getContractFactory("Token");
-  const token = await Token.deploy();
-  await token.deployed();
+  const Contract = await ethers.getContractFactory(contractName);
+  const contract = await Contract.deploy();
+  await contract.deployed();
 
-  console.log("Token address:", token.address);
+  console.log("Deployed contract address:", contract.address);
 
   // We also save the contract's artifacts and address in the frontend directory
-  saveFrontendFiles(token);
+  saveFrontendFiles(contractName, contract.address);
 }
 
-function saveFrontendFiles(token) {
+function saveFrontendFiles(contractName, contractAddress) {
+  console.log("Saving contract with address:", contractAddress);
+
   const fs = require("fs");
-  const contractsDir = path.join(__dirname, "..", "frontend", "src", "contracts");
+  const contractsDir = path.join(
+    __dirname,
+    "..",
+    "frontend",
+    "src",
+    "contracts"
+  );
 
   if (!fs.existsSync(contractsDir)) {
     fs.mkdirSync(contractsDir);
@@ -42,14 +55,14 @@ function saveFrontendFiles(token) {
 
   fs.writeFileSync(
     path.join(contractsDir, "contract-address.json"),
-    JSON.stringify({ Token: token.address }, undefined, 2)
+    JSON.stringify({ [contractName]: contractAddress }, undefined, 2)
   );
 
-  const TokenArtifact = artifacts.readArtifactSync("Token");
+  const ContractArtifact = artifacts.readArtifactSync(contractName);
 
   fs.writeFileSync(
-    path.join(contractsDir, "Token.json"),
-    JSON.stringify(TokenArtifact, null, 2)
+    path.join(contractsDir, `${contractName}.json`),
+    JSON.stringify(ContractArtifact, null, 2)
   );
 }
 
